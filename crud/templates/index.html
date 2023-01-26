@@ -312,12 +312,12 @@
 					<div class="modal-body">					
 						<div class="form-group">
 							<label>News Title</label>
-							<input name="news_title" type="text" class="form-control" required>
+							<input name="news_title" type="text" class="form-control" required value="{{ form.newsTitle.value }}">
 						</div>
 
 						<div class="form-group">
 							<label>Details</label>
-							<textarea name="dtls" class="form-control" required></textarea>
+							<textarea name="dtls" class="form-control" required value="{{ form.details.value }}"></textarea>
 						</div>
 				
 					</div>
