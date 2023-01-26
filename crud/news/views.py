@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect, render
 from news.models import DailyNews
+from .forms import NewsForm
 
 def INDEX(request):
     nws = DailyNews.objects.all()
@@ -21,4 +22,14 @@ def ADD(request):
         nws.save()
         return redirect('home')
     return render(request, 'index.html')
+
+def news_create(request):
+    if request.method == 'POST':
+        form = NewsForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = NewsForm()
+    return render(request, 'form.html', {'form': form})
 

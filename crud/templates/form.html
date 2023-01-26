@@ -1,0 +1,21 @@
+
+				<form method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="form-group">
+						<label for="title">News Title</label>
+						<input type="text" class="form-control" id="newsTitle" name="newsTitle" value="{{ form.newsTitle.value }}">
+					</div>
+					<div class="form-group">
+						<label for="description">Details</label>
+						<textarea class="form-control" id="details" name="details" rows="3"> {{ form.details.value }} </textarea>
+					</div>
+					<!-- <div class="form-group">
+						<label for="image">Image</label>
+						{% if form.image.value %}
+							<img src="{{ form.image.value.url }}" class="img-thumbnail" width="50">
+						{% endif %}
+						<input type="file" class="form-control-file" id="image" name="image">
+					</div> -->
+					<button type="submit" class="btn btn-primary">Save</button>
+					<a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+				</form>
