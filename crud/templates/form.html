@@ -1,5 +1,5 @@
 
-				<form method="post" enctype="multipart/form-data">
+				<!-- <form method="post" enctype="multipart/form-data">
 					{% csrf_token %}
 					<div class="form-group">
 						<label for="title">News Title</label>
@@ -9,13 +9,40 @@
 						<label for="description">Details</label>
 						<textarea class="form-control" id="details" name="details" rows="3"> {{ form.details.value }} </textarea>
 					</div>
-					<!-- <div class="form-group">
+					<div class="form-group">
 						<label for="image">Image</label>
 						{% if form.image.value %}
 							<img src="{{ form.image.value.url }}" class="img-thumbnail" width="50">
 						{% endif %}
 						<input type="file" class="form-control-file" id="image" name="image">
-					</div> -->
+					</div> 
 					<button type="submit" class="btn btn-primary">Save</button>
 					<a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+				</form> -->
+
+
+				<!-- Edit Modal HTML -->
+	<div id="addNews" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="modal-header">						
+						<h4 class="modal-title">News Title</h4>
+						<input type="text" class="form-control" id="newsTitle" name="newsTitle" value="{{ form.newsTitle.value }}" required>
+					</div>
+					<div class="modal-body">					
+						<div class="form-group">
+							<label for="description">Details</label>
+							<input type="text" class="form-control" id="details" name="details" value="{{ form.newsTitle.value }}"required>
+						</div>
+						
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+						<input type="submit" class="btn btn-success" value="Add">
+						<a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+					</div>
 				</form>
+			</div>
+		</div>
+	</div>

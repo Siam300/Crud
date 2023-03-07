@@ -31,5 +31,5 @@ def news_create(request):
             return redirect('home')
     else:
         form = NewsForm()
-    return render(request, 'form.html', {'form': form})
+    return render(request, 'index.html', {'form': form})
 
